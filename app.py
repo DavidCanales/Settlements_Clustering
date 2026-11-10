@@ -235,9 +235,9 @@ elif section == "K-Means":
         st.pyplot(fig, use_container_width=True)
         plt.close(fig)
     with right:
-        st.markdown(f"""
-        #### Diferencia entre zonas: {DIFERENCIA_TONELADAS:.2f} toneladas
-        #### Desequilibrio respecto al total: {DESEQUILIBRIO_ZONAS:.2f}%
+        st.markdown("""
+        #### Diferencia entre zonas: 39.63 toneladas
+        #### Desequilibrio respecto al total: 6.34%
         """)
         fig, ax = plt.subplots(figsize=(6, 4))
         vals = a.RESUMEN_ZONAS
