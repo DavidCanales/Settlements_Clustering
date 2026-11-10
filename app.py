@@ -166,9 +166,9 @@ elif section == "Residuos":
     st.subheader("2. Estimación de recolección vespertina")
     st.markdown("Se relaciona la población asignada a cada sector con las toneladas registradas durante 2025. Los asentamientos compartidos reparten su población entre sectores, sin duplicarla.")
     c1, c2, c3, c4 = st.columns(4)
-    c1.metric("Sectores", fmt(len(a.DATOS_SECTORES)))
-    c2.metric("Población asignada", fmt(a.POBLACION_TOTAL))
-    c3.metric("Toneladas registradas", f"{fmt(a.TONELADAS_TOTALES, 2)} t")
+    c1.metric("Sectores vespertinos", fmt(len(a.DATOS_SECTORES)))
+    c2.metric("Población de sec. vespertinos", fmt(a.POBLACION_TOTAL))
+    c3.metric("Histórico de toneladas ", f"{fmt(a.TONELADAS_TOTALES, 2)} t")
     c4.metric("Recolección diaria por habitante", f"{a.TASA_GLOBAL:.4f} kg")
     st.caption(f"Periodo de registros: {a.FECHA_INICIO.date()} al {a.FECHA_FIN.date()} ({a.DIAS_PERIODO} días calendario).")
     st.markdown("**Criterio para clusterización:** demanda estimada de cada asentamiento = población × tasa local × 2 días / 1,000.")
@@ -187,7 +187,7 @@ elif section == "Residuos":
     fig.tight_layout()
     st.pyplot(fig, use_container_width=True)
     plt.close(fig)
-    st.caption("La tasa mide recolección del turno vespertino, no necesariamente la totalidad de residuos generados. Supone cobertura suficiente de registros.")
+    st.caption("La tasa mide recolección del turno vespertino, no necesariamente la totalidad de residuos generados.")
 
 elif section == "Análisis geográfico":
     st.subheader("3. Geometrías y puntos representativos")
@@ -249,7 +249,6 @@ elif section == "K-Means":
         plt.close(fig)
     st.markdown("#### Continuidad entre polígonos vespertinos")
     st.dataframe(a.CONTINUIDAD_ZONAS, hide_index=True, use_container_width=True)
-    st.warning("K-Means no garantiza zonas continuas ni una asignación equilibrada de toneladas. Los componentes detectados reflejan conexiones por frontera entre polígonos vespertinos, no conectividad por vialidades.")
     export_data = a.ZONAS_CLUSTER[["CVEASEN", "Poblacion_Original", "Demanda_Toneladas", "Cluster", "Zona_Propuesta", "Coordenada_X", "Coordenada_Y"]].copy()
     export_data["Cluster"] += 1
     st.download_button("Descargar asignación Norte-Sur (CSV)", export_data.to_csv(index=False).encode("utf-8-sig"), "zonas_vespertinas.csv", "text/csv")
