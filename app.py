@@ -121,7 +121,7 @@ if section == "Resumen":
     c1.metric("Asentamientos totales", fmt(len(a.ASENTAMIENTOS_PROYECTADOS)))
     c2.metric("Asentamientos vespertinos", fmt(len(a.DATOS_CLUSTER)))
     c3.metric("Residuos vespertinos de 2 días", f"{fmt(a.PESOS_CLUSTER.sum(), 2)} t")
-    c4.metric("Tasa local", f"{a.TASA_GLOBAL:.4f} kg/hab/día")
+    c4.metric("Generación de residuos per capita", f"{a.TASA_GLOBAL:.4f} kg/día")
     st.markdown("**Objetivo:** estudiar la demanda vespertina de recolección y una posible división Norte-Sur mediante aprendizaje no supervisado.")
     left, right = st.columns([1.3, 1])
     with left:
