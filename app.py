@@ -90,6 +90,33 @@ with st.sidebar:
 
 if section == "Resumen":
     st.subheader("Resumen")
+        st.markdown("""
+    **¿De qué trata este proyecto?**
+
+    Este proyecto analiza la distribución geográfica de los asentamientos
+    de Saltillo para proponer una división territorial que facilite la
+    planificación de la recolección de residuos sólidos urbanos durante
+    el turno vespertino.
+
+    Se utilizan registros históricos, información geográfica y técnicas
+    de Machine Learning para desarrollar cuatro etapas:
+
+    1. **Predicción poblacional:** estimar la población de Saltillo para 2025
+       mediante modelos de regresión.
+    2. **Estimación de residuos:** calcular la demanda de recolección
+       a partir de los registros históricos.
+    3. **Análisis geográfico:** obtener puntos representativos
+       de los asentamientos.
+    4. **Clusterización:** utilizar K-Means para proponer y evaluar
+       una división Norte-Sur.
+
+    El análisis se concentra en **396 asentamientos del turno vespertino**,
+    con una demanda estimada para dos días de acumulación.
+    Los resultados constituyen una propuesta exploratoria,
+    no rutas definitivas de recolección.
+    """)
+
+    st.divider()
     c1, c2, c3, c4 = st.columns(4)
     c1.metric("Asentamientos totales", fmt(len(a.ASENTAMIENTOS_PROYECTADOS)))
     c2.metric("Asentamientos vespertinos", fmt(len(a.DATOS_CLUSTER)))
