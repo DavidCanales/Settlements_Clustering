@@ -198,8 +198,13 @@ elif section == "Análisis geográfico":
     c3.metric("CRS métrico", str(a.CRS_PROYECTADO))
     fig, ax = plt.subplots(figsize=(11, 9))
     base_map(ax)
-    a.PUNTOS_GEO.plot(ax=ax, color="#F205CB", markersize=4, label="Puntos representativos") if hasattr(a, "PUNTOS_GEO") else ax.scatter(
-        a.CENTROIDES["Coordenada_X"], a.CENTROIDES["Coordenada_Y"], c="#F205CB", s=4, label="Puntos representativos"
+    # Dibujar puntos representativos
+    ax.scatter(
+    a.CENTROIDES["Coordenada_X"],
+    a.CENTROIDES["Coordenada_Y"],
+    color="#F205CB",
+    s=4,
+    label="Puntos representativos"
     )
     ax.set_title("862 polígonos y sus puntos representativos")
     ax.legend(loc="best")
