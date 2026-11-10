@@ -228,13 +228,17 @@ elif section == "K-Means":
         plt.close(fig)
 
     st.markdown("#### Propuesta Norte-Sur (k = 2)")
+    st.dataframe(a.RESUMEN_ZONAS.round(2), hide_index=True, use_container_width=True)
     left, right = st.columns([1.2, 1])
     with left:
         fig = plot_north_south()
         st.pyplot(fig, use_container_width=True)
         plt.close(fig)
     with right:
-        st.dataframe(a.RESUMEN_ZONAS.round(2), hide_index=True, use_container_width=True)
+        st.markdown(f"""
+        #### Diferencia entre zonas: {DIFERENCIA_TONELADAS:.2f} toneladas
+        #### Desequilibrio respecto al total: {DESEQUILIBRIO_ZONAS:.2f}%
+        """)
         fig, ax = plt.subplots(figsize=(6, 4))
         vals = a.RESUMEN_ZONAS
         bars = ax.bar(vals["Zona_Propuesta"], vals["Demanda_Toneladas"], color=[ZONE_COLORS[z] for z in vals["Zona_Propuesta"]])
@@ -247,9 +251,6 @@ elif section == "K-Means":
         fig.tight_layout()
         st.pyplot(fig, use_container_width=True)
         plt.close(fig)
-    st.markdown("#### Continuidad entre polígonos vespertinos")
-    st.dataframe(a.RESUMEN_ZONAS.round(2), hide_index=True, use_container_width=True)
-    #st.dataframe(a.CONTINUIDAD_ZONAS, hide_index=True, use_container_width=True)
     export_data = a.ZONAS_CLUSTER[["CVEASEN", "Poblacion_Original", "Demanda_Toneladas", "Cluster", "Zona_Propuesta", "Coordenada_X", "Coordenada_Y"]].copy()
     export_data["Cluster"] += 1
     st.download_button("Descargar asignación Norte-Sur (CSV)", export_data.to_csv(index=False).encode("utf-8-sig"), "zonas_vespertinas.csv", "text/csv")
