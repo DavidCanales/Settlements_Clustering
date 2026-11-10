@@ -190,12 +190,11 @@ elif section == "Residuos":
     st.caption("La tasa mide recolección del turno vespertino, no necesariamente la totalidad de residuos generados.")
 
 elif section == "Análisis geográfico":
-    st.subheader("3. Geometrías y puntos representativos")
+    st.subheader("3. Centroides y puntos representativos")
     n_outside = int((~a.CENTROIDES["Centroide_Dentro"]).sum())
-    c1, c2, c3 = st.columns(3)
+    c1, c2 = st.columns(2)
     c1.metric("Polígonos del KML", len(a.CENTROIDES))
-    c2.metric("Centroides fuera del polígono", n_outside)
-    c3.metric("CRS métrico", str(a.CRS_PROYECTADO))
+    c2.metric("Polígonos Vespertinos", 396)
     fig, ax = plt.subplots(figsize=(11, 9))
     base_map(ax)
     # Dibujar puntos representativos
