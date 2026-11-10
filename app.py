@@ -87,9 +87,6 @@ with st.sidebar:
         label_visibility="collapsed"
     )
     st.divider()
-    st.caption("Los clústeres se calculan con coordenadas UTM y pesos por toneladas estimadas para dos días.")
-    st.caption("Fuentes: archivos históricos, sectoriales y geográficos incluidos en Recursos/.")
-
 
 if section == "Resumen":
     st.subheader("Visión general")
