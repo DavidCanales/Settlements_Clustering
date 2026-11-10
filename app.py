@@ -89,7 +89,7 @@ with st.sidebar:
     st.divider()
 
 if section == "Resumen":
-    st.subheader("Visión general")
+    st.subheader("Resumen")
     c1, c2, c3, c4 = st.columns(4)
     c1.metric("Asentamientos totales", fmt(len(a.ASENTAMIENTOS_PROYECTADOS)))
     c2.metric("Asentamientos vespertinos", fmt(len(a.DATOS_CLUSTER)))
