@@ -90,7 +90,7 @@ with st.sidebar:
 
 if section == "Resumen":
     st.subheader("Resumen")
-        st.markdown("""
+    st.markdown("""
     **¿De qué trata este proyecto?**
 
     Este proyecto analiza la distribución geográfica de los asentamientos
