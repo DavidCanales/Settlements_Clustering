@@ -229,4 +229,3 @@ elif section == "K-Means":
     st.download_button("Descargar asignación Norte-Sur (CSV)", export_data.to_csv(index=False).encode("utf-8-sig"), "zonas_vespertinas.csv", "text/csv")
 
 st.divider()
-st.caption("El código de cálculo procede del notebook Proyecto_Final.ipynb. Proyecto académico exploratorio · Noviembre 2026.")
