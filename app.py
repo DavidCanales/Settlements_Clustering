@@ -77,9 +77,8 @@ def plot_north_south():
     return fig
 
 
-st.title("Residuos sólidos urbanos · Saltillo")
+st.title("Clusterización de asentamientos para la recolección de residuos en Saltillo")
 st.caption("Proyecto final de Machine Learning · Noviembre de 2026 · Análisis del turno vespertino")
-st.info("Los mapas y métricas reproducen el notebook final. La regionalización es exploratoria; no representa rutas operativas aprobadas.")
 
 with st.sidebar:
     st.header("Secciones")
