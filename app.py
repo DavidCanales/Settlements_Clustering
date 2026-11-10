@@ -248,7 +248,8 @@ elif section == "K-Means":
         st.pyplot(fig, use_container_width=True)
         plt.close(fig)
     st.markdown("#### Continuidad entre polígonos vespertinos")
-    st.dataframe(a.CONTINUIDAD_ZONAS, hide_index=True, use_container_width=True)
+    st.dataframe(a.RESUMEN_ZONAS.round(2), hide_index=True, use_container_width=True)
+    #st.dataframe(a.CONTINUIDAD_ZONAS, hide_index=True, use_container_width=True)
     export_data = a.ZONAS_CLUSTER[["CVEASEN", "Poblacion_Original", "Demanda_Toneladas", "Cluster", "Zona_Propuesta", "Coordenada_X", "Coordenada_Y"]].copy()
     export_data["Cluster"] += 1
     st.download_button("Descargar asignación Norte-Sur (CSV)", export_data.to_csv(index=False).encode("utf-8-sig"), "zonas_vespertinas.csv", "text/csv")
