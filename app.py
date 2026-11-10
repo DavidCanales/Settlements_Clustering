@@ -106,7 +106,6 @@ if section == "Resumen":
         st.dataframe(a.RESUMEN_ZONAS.round(2), hide_index=True, use_container_width=True)
         st.metric("Diferencia Norte-Sur", f"{a.DIFERENCIA_TONELADAS:.2f} t")
         st.metric("Desequilibrio respecto al total", f"{a.DESEQUILIBRIO_ZONAS:.2f} %")
-        st.caption("K-Means ponderado aproxima espacialmente asentamientos, pero no impone continuidad ni igualdad de carga.")
 
 elif section == "Predicción poblacional":
     st.subheader("1. Predicción de población para 2025")
